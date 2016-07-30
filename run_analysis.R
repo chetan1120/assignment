@@ -31,13 +31,13 @@ featuresWanted.names <- gsub('[-()]', '', featuresWanted.names)
 traindata <- read.table("UCI HAR Dataset/train/X_train.txt")[featuresWanted]
 trainActivities <- read.table("UCI HAR Dataset/train/Y_train.txt")
 trainSubjects <- read.table("UCI HAR Dataset/train/subject_train.txt")
-traindata <- cbind(trainSubjects, trainActivities, train)
+traindata <- cbind(trainSubjects, trainActivities, traindata)
 
 # Load the test dataset
 testdata <- read.table("UCI HAR Dataset/test/X_test.txt")[featuresWanted]
 testActivities <- read.table("UCI HAR Dataset/test/Y_test.txt")
 testSubjects <- read.table("UCI HAR Dataset/test/subject_test.txt")
-testdata <- cbind(testSubjects, testActivities, test)
+testdata <- cbind(testSubjects, testActivities, testdata)
 
 # merge datasets and add labels
 allData <- rbind(traindata, testdata)
